@@ -14,8 +14,10 @@ import {
     PsychologyOutlined as PsychologyOutlinedIcon,
     SettingsApplications as SettingsApplicationsIcon,
     AccountCircleOutlined as AccountCircleOutlinedIcon,
-    ExitToApp as ExitToAppIcon
+    ExitToApp as ExitToAppIcon,
+    Circle as CircleIcon
   } from '@mui/icons-material'
+// import CircleIcon from '@mui/icons-material/Circle';
 
 const Sidebar = () => {
     const { dispatch } = useContext(DarkModeContext)
@@ -23,7 +25,7 @@ const Sidebar = () => {
         <div className='sidebar'>
             <div className="top">
                 <Link to="/" className="link">
-                    <span className="logo">admin.</span>
+                    <span className="logo">admin<CircleIcon className="icon" /></span>
                 </Link>
             </div>
             <hr />

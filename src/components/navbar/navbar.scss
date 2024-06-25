@@ -1,12 +1,11 @@
 .navbar {
-    height: 50px;
-    border-bottom: 0.5px solid rgb(231, 228, 228);
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: var(--navbar-font-size);
     color: #555;
     .wrapper {
         width: 100%;
+        height: calc(var(--top-height) - 1vh);
         padding: 20px;
         display: flex;
         align-items: center;
@@ -15,19 +14,27 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 75%;
+            width: 65%;
+            height: calc(var(--top-height) - 2vh);
             border: 1px solid rgb(230, 227, 227);
-            border-radius: 15px;
+            border-radius: 30px;
             -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
             box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
             padding: 3px;
             input {
+                width: 100%;
                 border: none;
                 outline: none;  // so input default border doesn't appear when user clicks on input
                 background: transparent;  // so background color doesn't stay white when using dark mode
+                padding-left: 1vw;
+                font-size: var(--navbar-font-size);
                 &::placeholder {
-                    font-size: 12px;
+                    font-size: var(--navbar-font-size);
                 }
+            }
+            .search-icon {
+                padding-right: 1vw;
+                padding-left: 0.5vw;
             }
         }
         .items {
@@ -39,26 +46,26 @@
                 margin-right: 20px;
                 position: relative;
                 .icon {
-                    font-size: 20px;
+                    font-size: var(--navbar-icon-size);
                 }
                 .counter {
-                    width: 15px;
-                    height: 15px;
+                    width: calc(var(--small-counter-size) + 5px);
+                    height: calc(var(--small-counter-size) + 5px);
                     background-color: red;
                     border-radius: 50%;
                     color: white;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-size: 10px;
+                    font-size: var(--small-counter-size);
                     font-weight: bold;
                     position: absolute;
                     top: -5px;
                     right: -5px;
                 }
                 .avatar {
-                    width: 30px;
-                    height: 30px;
+                    width: calc(var(--navbar-font-size) + 1.5vh);
+                    height: calc(var(--navbar-font-size) + 1.5vh);
                     border-radius: 50%;
                 }
             }

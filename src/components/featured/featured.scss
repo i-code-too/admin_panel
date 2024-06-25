@@ -1,11 +1,12 @@
 .featured {
     flex: 2;
+    height: fit-content;
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
     box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
     padding: 10px;
     .top, .bottom {
         .small-icon {
-            font-size: small;
+            font-size: var(--chart-icon-size);
         }
     }
     .top {
@@ -14,8 +15,9 @@
         justify-content: space-between;
         color: gray;
         .title {
-            font-size: 16px;
+            font-size: var(--large-title-size);
             font-weight: 500;
+            margin-left: 10px;
         }
     }
     .bottom {
@@ -26,19 +28,21 @@
         justify-content: center;
         gap: 15px;
         .featured-chart {
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
         }
         .title {
+            font-size: var(--navbar-font-size);
             font-weight: 500;
             color: gray;
         }
         .amount {
-            font-size: 30px;
+            font-size: var(--sidebar-logo-size);
         }
         .desc {
             font-weight: 300;
-            font-size: 12px;
+            font-size: 1.35vh;
             color: gray;
             text-align: center;
         }
@@ -50,14 +54,13 @@
             .item {
                 text-align: center;
                 .itemTitle {
-                    font-size: 14px;
+                    font-size: calc(var(--navbar-font-size) - 0.2vh);
                     color: gray;
                 }
                 .itemResult {
                     display: flex;
                     align-items: center;
                     margin-top: 10px;
-                    font-size: 14px;
                     &.positive {
                         color: green;
                     }

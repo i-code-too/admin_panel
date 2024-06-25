@@ -3,7 +3,7 @@
     padding: 20px;
     .datatable-title {
         width: 100%;
-        font-size: 24px;
+        font-size: var(--large-title-size);
         color: gray;
         margin-bottom: 10px;
         display: flex;
@@ -20,12 +20,19 @@
         border: 1px solid #7451f8;
         border-radius: 5px;
         padding: 8px;
-        font-size: 16px;
+        font-size: calc(var(--large-title-size) - 0.5vh);
         font-weight: 400;
         cursor: pointer;
         .icon {
             margin-right: 5px;
         }
+    }
+    .MuiDataGrid-columnHeaderTitle {
+        color: gray;
+        font-size: var(--navbar-font-size);
+    }
+    .MuiDataGrid-cell {
+        font-size: calc(var(--navbar-font-size) - 0.15vh);
     }
     .cell-with-img {
         display: flex;
@@ -64,7 +71,6 @@
             color: darkblue;
             border: 1px dotted rgba(0, 0, 139, 0.596);
             cursor: pointer;
-            text-decoration: none;
         }
         .delete-button {
             padding: 4px 8px;

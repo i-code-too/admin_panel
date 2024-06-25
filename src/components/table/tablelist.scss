@@ -1,4 +1,10 @@
 .table-list {
+    .table-cell {
+        font-family: 'Nunito', sans-serif;
+        &.head {
+            color: gray;
+        }
+    }
     .cell-wrapper {
         display: flex;
         align-items: center;

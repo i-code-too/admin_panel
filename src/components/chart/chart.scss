@@ -5,7 +5,10 @@
     padding: 10px;
     color: gray;
     .title {
+        margin-left: 10px;
         margin-bottom: 20px;
+        font-size: var(--large-title-size);
+        font-weight: 500;
     }
     .responsive-container {
         width: 100%;

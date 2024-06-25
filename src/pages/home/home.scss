@@ -1,3 +1,20 @@
+:root {
+    --top-height: 6vh;
+    --navbar-font-size: 1.8vh;
+    --navbar-icon-size: calc(var(--navbar-font-size) + 0.5vh);
+    --small-counter-size: 1.5vh;
+    --sidebar-logo-size: 3vh;
+    --sidebar-font-size: var(--navbar-font-size);
+    --sidebar-title-size: calc(var(--sidebar-font-size) - 0.7vh);
+    --sidebar-icon-size: calc(var(--sidebar-logo-size));
+    --widget-title-size: calc(0.53 * var(--sidebar-logo-size));
+    --widget-icon-size: calc(0.65 * var(--sidebar-logo-size));
+    --large-counter-size: var(--sidebar-logo-size);
+    --widget-link-size: calc(0.9 * var(--widget-title-size));
+    --chart-icon-size: calc(var(--navbar-icon-size) - 0.3vh);
+    --large-title-size: 2.1vh;
+}
+
 .home {
     display: flex;
     .homeContainer {
@@ -16,6 +33,7 @@
             padding: 20px;
             margin: 20px;
             .list-title {
+                font-size: var(--large-title-size);
                 font-weight: 500;
                 color: gray;
                 margin-bottom: 15px;

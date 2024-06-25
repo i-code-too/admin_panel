@@ -10,11 +10,11 @@
             margin: 20px;
             display: flex;
             h1 {
-                font-size: 20px;
-                color: lightgray;
+                font-size: var(--large-title-size);
+                color: rgb(156, 155, 155);
             }
             .left {
-                flex: 1;
+                flex: 2;
                 text-align: center;
                 img {
                     width: 100px;
@@ -24,7 +24,7 @@
                 }
             }
             .right {
-                flex: 2;
+                flex: 4;
                 form {
                     display: flex;
                     flex-wrap: wrap;
@@ -64,6 +64,9 @@
                     }
                 }
             }
+        }
+        .bottom {
+            padding-top: 20px;
         }
     }
 }

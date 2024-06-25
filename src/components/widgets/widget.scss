@@ -13,22 +13,22 @@
         justify-content: space-between;
         .title {
             font-weight: bold;
-            font-size: 14px;
+            font-size: var(--widget-title-size);
             color: rgb(160, 160, 160);
         }
         .counter {
-            font-size: 28px;
+            font-size: var(--large-counter-size);
             font-weight: 300;
         }
         .link {
             width: max-content;
-            font-size: 12px;
+            font-size: var(--widget-link-size);
             border-bottom: 1px solid gray;
         }
         .percentage {
             display: flex;
             align-items: center;
-            font-size: 14px;
+            font-size: var(--widget-title-size);
             &.positive {
                 color: green;
             }
@@ -37,7 +37,7 @@
             }
         }
         .icon {
-            font-size: 18px;
+            font-size: var(--widget-icon-size);
             padding: 5px;
             border-radius: 5px;
             align-self: flex-end;

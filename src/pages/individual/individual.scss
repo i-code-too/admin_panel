@@ -8,8 +8,8 @@
             display: flex;
             gap: 20px;
             .title {
-                font-size: 16px;
-                color: lightgray;
+                font-size: var(--large-title-size);
+                color: rgb(153, 153, 153);
                 margin-bottom: 20px;
             }
             .left {
@@ -67,6 +67,11 @@
             box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
             padding: 20px;
             margin: 10px 20px;
+            .title {
+                color: gray;
+                font-size: calc(var(--large-title-size) * 1.2);
+                margin-bottom: 15px;
+            }
         }
     }
 }

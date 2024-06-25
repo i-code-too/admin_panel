@@ -16,10 +16,10 @@ const Navbar = () => {
             <div className="wrapper">
                 <div className="search">
                     <input type="text" placeholder="Search for"/>
-                    <SearchOutlinedIcon className="icon"/>
+                    <SearchOutlinedIcon className="icon search-icon"/>
                 </div>
                 <div className="items">
-                    <div className="item">
+                    <div className="item for-space">
                         <LanguageOutlinedIcon className="icon"/>
                         English
                     </div>
