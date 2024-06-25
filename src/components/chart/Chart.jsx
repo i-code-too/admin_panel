@@ -10,11 +10,11 @@ const data = [
     {name: "June", Total: 1700},
 ]
 
-const Chart = () => {
+const Chart = ({aspect, title}) => {
     return(
         <div className="chart">
-            <div className="title">Last 6 months (Revenue)</div>
-            <ResponsiveContainer className="responsive-container">
+            <div className="title">{title}</div>
+            <ResponsiveContainer className="responsive-container" aspect={aspect}>
                 <AreaChart className="area-chart" data={data}>
                     <defs>
                         <linearGradient id="total" x1="0" y1="0" x2="0" y2="1">
