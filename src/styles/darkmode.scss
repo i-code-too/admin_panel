@@ -1,0 +1,63 @@
+.app.dark {
+    background-color: #111;
+    color: rgb(156, 156, 156);
+    .chart-grid {
+        stroke: rgb(228, 228, 228, 0.219);
+    }
+    .table-list {
+        background-color: #111;
+        .table-cell {
+            color: gray;
+        }
+    }
+    .navbar {
+        color: #999;
+        border-color: #333;
+        .search {
+            border-color: gray;
+        }
+    }
+    .sidebar {
+        background-color: #111;
+        border-color: #333;
+        hr {
+            border-color: #333;
+        }
+        ul {
+            li {
+                &:hover {
+                    background-color: #333;
+                }
+            }
+        }
+    }
+    .datatable {
+        .datagrid {
+            color: gray;
+            border: none;
+            .view-button, .delete-button, .cell-with-status {
+                color: white;
+            }
+            .view-button {
+                background-color: rgb(39, 39, 144);
+            }
+            .delete-button {
+                background-color: rgba(224, 37, 74, 0.921);
+            }
+            .cell-with-status {
+                &.active {
+                    background-color: green;
+                }
+                &.pending {
+                    background-color: goldenrod;
+                }
+                &.passive {
+                    background-color: rgba(224, 37, 74, 0.921);
+                }
+            }
+        }
+    }
+    input {
+        background-color: transparent;
+    }
+}

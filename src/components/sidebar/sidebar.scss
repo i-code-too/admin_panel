@@ -3,6 +3,9 @@
     border-right: 0.5px solid rgb(230, 227, 227);
     min-height: 100vh;
     background-color: white;
+    .link {
+        text-decoration: none;
+    }
     .top {
         height: 50px;
         display: flex;
@@ -16,7 +19,8 @@
     }
     hr {
         height: 0;
-        border: 0.5px solid rgb(231, 228, 228);
+        border: none;
+        // border: 0.1px dotted rgb(230, 227, 227);
     }
     .center {
         padding-left: 10px;

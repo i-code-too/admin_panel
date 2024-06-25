@@ -1,22 +1,30 @@
 import "./sidebar.scss"
-import DashboardIcon from '@mui/icons-material/Dashboard'
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined'
-import StoreIcon from '@mui/icons-material/Store'
-import CreditCardIcon from '@mui/icons-material/CreditCard'
-import LocalShippingIcon from '@mui/icons-material/LocalShipping'
-import InsertChartIcon from '@mui/icons-material/InsertChart'
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
-import SettingsSystemDaydreamOutlinedIcon from '@mui/icons-material/SettingsSystemDaydreamOutlined'
-import PsychologyOutlinedIcon from '@mui/icons-material/PsychologyOutlined'
-import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications'
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
-import ExitToAppIcon from '@mui/icons-material/ExitToApp'
+import { useContext } from "react"
+import { DarkModeContext } from "../../context/darkModeContext"
+import { Link } from 'react-router-dom'
+import {
+    Dashboard as DashboardIcon,
+    PersonOutlineOutlined as PersonOutlineOutlinedIcon,
+    Store as StoreIcon,
+    CreditCard as CreditCardIcon,
+    LocalShipping as LocalShippingIcon,
+    InsertChart as InsertChartIcon,
+    NotificationsNone as NotificationsNoneIcon,
+    SettingsSystemDaydreamOutlined as SettingsSystemDaydreamOutlinedIcon,
+    PsychologyOutlined as PsychologyOutlinedIcon,
+    SettingsApplications as SettingsApplicationsIcon,
+    AccountCircleOutlined as AccountCircleOutlinedIcon,
+    ExitToApp as ExitToAppIcon
+  } from '@mui/icons-material'
 
 const Sidebar = () => {
+    const { dispatch } = useContext(DarkModeContext)
     return(
         <div className='sidebar'>
             <div className="top">
-                <span className="logo">admin.</span>
+                <Link to="/" className="link">
+                    <span className="logo">admin.</span>
+                </Link>
             </div>
             <hr />
             <div className="center">
@@ -27,14 +35,18 @@ const Sidebar = () => {
                         <span>Dashboard</span>
                     </li>
                     <p className="title">LISTS</p>
-                    <li>
-                        <PersonOutlineOutlinedIcon className="icon"/>
-                        <span>Users</span>
-                    </li>
-                    <li>
-                        <StoreIcon className="icon"/>
-                        <span>Products</span>
-                    </li>
+                    <Link to="/users" className="link">
+                        <li>
+                            <PersonOutlineOutlinedIcon className="icon"/>
+                            <span>Users</span>
+                        </li>
+                    </Link>
+                    <Link to="/products" className="link">
+                        <li>
+                            <StoreIcon className="icon"/>
+                            <span>Products</span>
+                        </li>
+                    </Link>
                     <li>
                         <CreditCardIcon className="icon"/>
                         <span>Orders</span>
@@ -77,8 +89,8 @@ const Sidebar = () => {
                 </ul>
             </div>
             <div className="bottom">
-                <div className="color-option"></div>
-                <div className="color-option"></div>
+                <div className="color-option" onClick={() => dispatch({type: "LIGHT"})}></div>
+                <div className="color-option" onClick={() => dispatch({type: "DARK"})}></div>
             </div>
         </div>
     )
