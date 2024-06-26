@@ -1,0 +1,86 @@
+.login {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    form {
+        font-family: 'Nunito', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 25px;
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(110, 16, 242, 0.478);
+        padding: 50px;
+        .top {
+            height: var(--top-height);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            .logo {
+                display: flex;
+                align-items: center;
+                font-size: var(--sidebar-logo-size);
+                font-weight: bold;
+                color: white;
+                background-color: #6439ff;
+                border: 1px solid #6439ff;
+                border-radius: 30px;
+                padding: 6px 12px;
+                .icon {
+                    margin-left: 2vh;
+                }
+            }
+            .link {
+                text-decoration: none;
+            }
+        }
+        label {
+            width: calc(var(--login-field-size) + 1vh);
+            text-align: right;
+            font-size: var(--large-title-size);
+            font-weight: 600;
+            color: rgba(160, 159, 159, 0.869);
+            font-style: italic;
+        }
+        input {
+            font-size: var(--navbar-font-size) - 0.5vh;
+            width: var(--login-field-size);
+            height: 30px;
+            margin: 30px;
+            margin-top: 0.5px;
+            border: 2px solid rgba(160, 159, 159, 0.869);
+            outline: rgba(160, 159, 159, 0.869);
+            border-radius: 5px;
+            color: #7415f8;
+            font-weight: 500;
+            &::placeholder {
+                color: #7415f84b;
+                font-size: var(--navbar-font-size) - 1vh;
+                font-style: italic;
+            }
+            cursor: #7415f8;
+        }
+        button {
+            width: calc(var(--login-field-size) + 8vh);
+            height: 45px;
+            margin-top: 25px;
+            border: none;
+            outline: none;
+            background-color: #7415f8;
+            border-radius: 5px;
+            color: white;
+            font-size: var(--navbar-font-size);
+            font-weight: 500;
+            cursor: pointer;
+        }
+        span {
+            font-size: calc(var(--navbar-font-size) - 0.5vh);
+            font-style: italic;
+            color: red;
+            margin-top: 10px;
+        }
+    }
+}
