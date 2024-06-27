@@ -25,6 +25,7 @@
             }
             .right {
                 flex: 4;
+                margin-top: 40px;
                 form {
                     display: flex;
                     flex-wrap: wrap;
@@ -36,6 +37,8 @@
                             display: flex;
                             align-items: center;
                             gap: 10px;
+                            font-size: calc(var(--navbar-font-size));
+                            color: #7415f8;
                             .icon {
                                 cursor: pointer;
                             }
@@ -46,6 +49,15 @@
                             border: none;
                             outline: none;
                             border-bottom: 1px solid gray;
+                            color: #7415f8;
+                            font-size: calc(var(--navbar-font-size) - 0.2vh);
+                            font-style: italic;
+                            &::placeholder {
+                                color: gray;
+                            }
+                            &:focus {
+                                color: #7415f8;
+                            }
                         }
                         input#image {
                             border: none;
@@ -54,19 +66,25 @@
                     }
                     button {
                         width: 50%;
-                        padding: 10px;
+                        padding: 15px;
                         border: none;
                         background-color: #7415f8;
                         color: white;
+                        font-size: var(--large-title-size);
                         font-weight: bold;
                         cursor: pointer;
                         margin: 10px 0;
+                        &:disabled {
+                            background-color: gray;
+                            cursor: not-allowed;
+                        }
                     }
                 }
             }
         }
         .bottom {
             padding-top: 20px;
+            flex-direction: column;
         }
     }
 }

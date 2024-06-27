@@ -11,24 +11,24 @@ export const userColumns = [
         renderCell: (params) => {
             return (
                 <div className="cell-with-img">
-                    <img className="cell-img" src={params.row.img} alt="avatar"/>
-                    {params.row.username}
+                    <img className="cell-img" src={params.row.Image} alt="avatar"/>
+                    {params.row.Username}
                 </div>
             )
         }
     },
     {
-        field: 'email',
+        field: 'Email',
         headerName: 'Email',
         width: 230
     },
     {
-        field: 'age',
-        headerName: 'Age',
-        width: 100
+        field: 'Address',
+        headerName: 'Address',
+        width: 230
     },
     {
-        field: 'status',
+        field: 'Status',
         headerName: 'Status',
         width: 160,
         renderCell: (params) => {

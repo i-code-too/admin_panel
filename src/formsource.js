@@ -1,42 +1,42 @@
 export const userInputs = [
     {
-      id: 1,
+      id: "Username",
       label: "Username",
       type: "text",
       placeholder: "john_doe",
     },
     {
-      id: 2,
+      id: "Full Name",
       label: "Full Name",
       type: "text",
       placeholder: "John Doe",
     },
     {
-      id: 3,
+      id: "Email",
       label: "Email",
       type: "email",
       placeholder: "john_doe@gmail.com",
     },
     {
-      id: 4,
+      id: "Phone",
       label: "Phone",
       type: "text",
       placeholder: "+1 234 567 89",
     },
     {
-      id: 5,
+      id: "Password",
       label: "Password",
       type: "password",
       placeholder: "Password should contain atleast a single special character."
     },
     {
-      id: 6,
+      id: "Address",
       label: "Address",
       type: "text",
       placeholder: "Elton St. 216 NewYork",
     },
     {
-      id: 7,
+      id: "Country",
       label: "Country",
       type: "text",
       placeholder: "USA",

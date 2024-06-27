@@ -30,7 +30,8 @@
                 border-radius: 30px;
                 padding: 6px 12px;
                 .icon {
-                    margin-left: 2vh;
+                    font-size: calc(var(--sidebar-logo-size) + 0.6vh);
+                    margin-left: 1vh;
                 }
             }
             .link {
@@ -38,11 +39,11 @@
             }
         }
         label {
-            width: calc(var(--login-field-size) + 1vh);
+            width: calc(var(--login-field-size));
             text-align: right;
-            font-size: var(--large-title-size);
+            font-size: calc(var(--large-title-size) - 0.3vh);
             font-weight: 600;
-            color: rgba(160, 159, 159, 0.869);
+            color: #7415f8;
             font-style: italic;
         }
         input {
@@ -62,6 +63,12 @@
                 font-style: italic;
             }
             cursor: #7415f8;
+            &:focus {
+                outline: none;
+                color: #7415f8;
+                border: 2px solid #7415f8;
+                font-size: var(--navbar-font-size) - 1vh;
+            }
         }
         button {
             width: calc(var(--login-field-size) + 8vh);

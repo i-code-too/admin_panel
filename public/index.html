@@ -9,5 +9,25 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+      const socket = new WebSocket('ws://172.16.0.2:3000');
+  
+      socket.onopen = () => {
+        console.log('Connected to WebSocket server');
+        socket.send('Hello Server!');
+      };
+  
+      socket.onmessage = event => {
+        console.log('Message from server:', event.data);
+      };
+  
+      socket.onerror = error => {
+        console.error('WebSocket error:', error);
+      };
+  
+      socket.onclose = () => {
+        console.log('WebSocket connection closed');
+      };
+    </script>
   </body>
 </html>
