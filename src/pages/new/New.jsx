@@ -1,6 +1,6 @@
 import "./new.scss"
 import { useEffect, useState } from "react"
-import { setDoc, doc, serverTimestamp } from "firebase/firestore"
+import { setDoc, doc, serverTimestamp, addDoc, collection } from "firebase/firestore"
 import { auth, db, storage } from "../../firebase"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
@@ -9,7 +9,7 @@ import Navbar from "../../components/navbar/Navbar"
 import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUploadOutlined'
 import { useNavigate } from "react-router-dom"
 
-const New = ({ inputs, title }) => {
+const New = ({ inputs, title, dataType }) => {
     const [file, setFile] = useState("")
     const [data, setData] = useState({})
     const [fileUploadPercentage, setfileUploadPercentage] = useState(null)
@@ -59,45 +59,55 @@ const New = ({ inputs, title }) => {
     const handleAddDoc = async (e) => {
         e.preventDefault()
         try {
-            const res = await createUserWithEmailAndPassword(auth, data.Email, data.Password)
-            await setDoc(doc(db, "users", res.user.uid), {
-                ...data, 
-                timeStamp: serverTimestamp(), 
-            })
-            navigate(-1)
+            let res;
+            if (dataType === "users") {
+              res = await createUserWithEmailAndPassword(auth, data.Email, data.Password);
+              await setDoc(doc(db, dataType, res.user.uid), {
+                ...data,
+                timeStamp: serverTimestamp(),
+              });
+            } else if (dataType === "products") {
+              res = await addDoc(collection(db, "products"), {
+                ...data,
+                timeStamp: serverTimestamp(),
+              });
+            }
+            navigate(-1);
         } catch (error) {
             console.log(error)
         }
     }
 
     return(
-        <div className="new">
-            <Sidebar />
-            <div className="new-container">
-                <Navbar />
-                <div className="top">
-                    <h1 className="title">Create New {title}</h1>
-                </div>
-                <div className="bottom">
-                    <div className="left">
-                        <img src={file ? URL.createObjectURL(file) : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"} alt="" />
+        <div className="homeContainer">
+            <div className="new">
+                <Sidebar />
+                <div className="new-container">
+                    <Navbar />
+                    <div className="top">
+                        <h1 className="title">Create New {title}</h1>
                     </div>
-                    <div className="right">
-                        <form onSubmit={handleAddDoc}>
-                        <div className="form-input">
-                                <label htmlFor="image"><DriveFolderUploadOutlinedIcon className="icon" /> {title==="User" ? "Profile Picture" : "Product Image"}</label>
-                                <input id="image" type="file" onChange={e => setFile(e.target.files[0])} />
-                            </div>
-                            {inputs.map(input => {
-                                return (
-                                    <div className="form-input" key={input.id}>
-                                        <label htmlFor={input.id}>{input.label}</label>
-                                        <input id={input.id} type={input.type} placeholder={input.placeholder} onChange={handleInput} />
-                                    </div>
-                                )
-                            })}
-                            <button type="submit" disabled={ fileUploadPercentage!==null && fileUploadPercentage<100}>Create {title}</button>
-                        </form>
+                    <div className="bottom">
+                        <div className="left">
+                            <img src={file ? URL.createObjectURL(file) : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"} alt="" />
+                        </div>
+                        <div className="right">
+                            <form onSubmit={handleAddDoc}>
+                            <div className="form-input">
+                                    <label htmlFor="image"><DriveFolderUploadOutlinedIcon className="icon" /> {title==="User" ? "Profile Picture" : "Product Image"}</label>
+                                    <input id="image" type="file" onChange={e => setFile(e.target.files[0])} />
+                                </div>
+                                {inputs.map(input => {
+                                    return (
+                                        <div className="form-input" key={input.id}>
+                                            <label htmlFor={input.id}>{input.label}</label>
+                                            <input id={input.id} type={input.type} placeholder={input.placeholder} onChange={handleInput} />
+                                        </div>
+                                    )
+                                })}
+                                <button type="submit" disabled={ fileUploadPercentage!==null && fileUploadPercentage<100}>Create {title}</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

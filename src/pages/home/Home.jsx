@@ -33,13 +33,13 @@ const Home = () => {
     return(
         <div className='home'>
             <Sidebar />
-            <div className="homeContainer">
+            <div className="homeHomeContainer">
                 <Navbar />
                 <div className="widgets">
                     <Widget type="users" />
+                    <Widget type="products" />
                     <Widget type="orders" />
                     <Widget type="earnings" />
-                    <Widget type="balance" />
                 </div>
                 <div className="charts">
                     <Featured />

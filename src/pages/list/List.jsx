@@ -3,13 +3,15 @@ import Sidebar from "../../components/sidebar/Sidebar"
 import Navbar from "../../components/navbar/Navbar"
 import Datatable from "../../components/datatable/Datatable"
 
-const List = () => {
+const List = ({ dataType, title, addnew }) => {
     return(
-        <div className="list">
-            <Sidebar />
-            <div className="list-container">
-                <Navbar />
-                <Datatable />
+        <div className="homeContainer">
+            <div className="list">
+                <Sidebar />
+                <div className="list-container">
+                    <Navbar />
+                    <Datatable dataType={dataType} title={title} addnew={addnew} />
+                </div>
             </div>
         </div>
     )

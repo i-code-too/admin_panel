@@ -66,7 +66,7 @@ const TableList = () => {
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell className="table-cell head">Tracking ID</TableCell>
+                <TableCell className="table-cell head">Product ID</TableCell>
                 <TableCell className="table-cell head">Product</TableCell>
                 <TableCell className="table-cell head">Customer</TableCell>
                 <TableCell className="table-cell head">Date</TableCell>

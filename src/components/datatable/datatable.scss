@@ -1,5 +1,12 @@
+.homeContainer {
+    display: flex;
+    flex: 6;
+    align-items: center;
+    justify-content: center;
+}
 .datatable {
     height: 575px;
+    width: 100%;
     padding: 20px;
     .datatable-title {
         width: 100%;

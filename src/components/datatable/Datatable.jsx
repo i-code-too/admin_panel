@@ -3,36 +3,35 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { DataGrid } from '@mui/x-data-grid'
 import AddCircleIcon from '@mui/icons-material/AddCircle'
-import { userColumns, userRows } from "../../datatablesource"
-import { doc, collection, getDocs, deleteDoc } from "firebase/firestore"
+import { userColumns, productColumns } from "../../datatablesource"
+import { doc, collection, deleteDoc, onSnapshot } from "firebase/firestore"
 import { db } from "../../firebase"
 
-const Datatable = () => {
+const Datatable = ({ dataType, title, addnew }) => {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    const fetchData = async () => {
+    // fetching data and realtime updation
+    const unsub = onSnapshot(collection(db, dataType), (snapShot) => {
       let list = []
-      try {
-        const querySnapshot = await getDocs(collection(db, "users"))
-        querySnapshot.forEach((doc) => {
-          list.push({ id:doc.id, ...doc.data() })
-        })
-        setData(list)
-      } catch (error) {
-        console.log(error)
-      }
+      snapShot.docs.forEach(doc => {
+        list.push({id:doc.id, ...doc.data()})
+      })
+      setData(list)
+    }, (error) => {
+      console.log(error)
+    })
+    return () => {
+      unsub()
     }
-    fetchData()
-  }, [])
-  console.log(data)
+  })
 
   const handleDelete = async (id) => {
     try {
       await deleteDoc(doc(db, "users", id));
       setData(data.filter((item) => item.id !== id))
     } catch (error) {
-      
+      console.log(error)
     }
   }
 
@@ -43,7 +42,7 @@ const Datatable = () => {
     renderCell: (params) => {
         return (
           <div className="cell-action">
-            <Link to=":userId" className="link-new">
+            <Link to={`:${params.row.id}`} className="link-new">
               <div>
                 <span className="view-button">View</span>
               </div>
@@ -59,17 +58,18 @@ const Datatable = () => {
   }
 
   return(
+    <div className="homeContainer">
       <div className="datatable">
         <div className="datatable-title">
-          Users
+          {title}
           <Link to="new" className="link">
-            <AddCircleIcon className="icon" /> Add New User
+            <AddCircleIcon className="icon" /> Add New {addnew}
           </Link>
         </div>
         <DataGrid
           className="datagrid"
           rows={data}
-          columns={userColumns.concat(actionColumn)}
+          columns={title === "Products" ? productColumns.concat(actionColumn) : userColumns.concat(actionColumn)}
           initialState={{
             pagination: {
               paginationModel: { page: 0, pageSize: 10},
@@ -87,6 +87,7 @@ const Datatable = () => {
           }}
         />
       </div>
+    </div>
   )
 }
 
